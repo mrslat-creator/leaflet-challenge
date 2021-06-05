@@ -89,9 +89,12 @@ d3.json(queryURL, function(data) {
         ];
     // Looping through
     for (car i = 0; i < grades.length; i++) {
-       div.innerHTML
-    }
-    }
+       div.innerHTML +=
+        "<i style= 'background: " + colors[i] + "'></i> " +
+        grades[i] + (grades[i + 1] ? "&ndash;" +grades[i +1] + "</br>" : "+");
+       }
+    return div;
+    };
     )
      )
   )
