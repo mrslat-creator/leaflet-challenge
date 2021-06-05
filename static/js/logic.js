@@ -27,8 +27,51 @@ d3.json(queryURL, function(data) {
         fillOpacity: 1,
         fillColor: getColor(feature.properties.mag),
         color: "#000000",
-        radius: getRadius
+        radius: getRadius(feature.properties.mag),
+        stroke: true,
+        weight: 0.5
+       };
     }
-    
-    )
+    // Set different color from magnitude
+    function getColor(magnitude) {
+    switch (true) {
+    case magnitude > 5:
+     return"#ea2c2c";
+    case magnitude > 4:
+      return"#ea822c";
+    case magnitude > 3:
+      return"#ee9c00";
+    case magnitude > 2:
+      return"#eecc00";
+    case magnitude > 1:
+      return"#d4ee00";
+    default:
+      return"#98ee00";
+     }
+    }
+    //Set Radius from Magnitude
+    fucntion getRadio(magnitude){
+    if(magnitude === 0) {
+       return 1;
+           }
+    }    
+    return magnitude * 4;
+  }
+  // GeoJSon layer
+  L.geoJson(data, {
+      //Maken circles
+      pointToLayer: function(feature, latlng) {
+        return L.circleMarker(latlng);
+      },
+  //Circle Style
+   style: styleInfo,
+   // popup for each marker
+   onEachFeature: function(feature, layer)  {
+       layer.bindPopup("Magnitude:" + "<br>Location: " + feature.properties.place);
+   }
+     }.addTo(myMap);
+     
+     //An 
+     )
+  )
 })
