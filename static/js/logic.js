@@ -71,7 +71,28 @@ d3.json(queryURL, function(data) {
    }
      }.addTo(myMap);
      
-     //An 
+     //An Object Legend({
+     position: "bottomright"
+    };
+    // Details for the legend
+    legend.onAdd = function() {
+        var div = L.DomUtil.create("div", "info legend");
+
+        var grades  = [0, 1, 2, 3, 4, 5];
+        var colors = [
+            "#98ee00",
+            "#d4ee00",
+            "#eecc00",
+            "#ee9c00",
+            "#ea822c",
+            "ea2c2c"
+        ];
+    // Looping through
+    for (car i = 0; i < grades.length; i++) {
+       div.innerHTML
+    }
+    }
+    )
      )
   )
 })
