@@ -2,7 +2,7 @@
 //We set the longitude, latitude, and the starting zoom level for sf
 //The gets inserted into the div with an id of  'map' in index.html
 var myMap = L.map("map", {
-    center: [37.7749, -122.4194]
+    center: [37.7749, -122.4194],
     zoom: 5
 });
 
@@ -14,14 +14,15 @@ L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
   id: "mapbox.streets",
   accessToken:"pk.eyJ1IjoibXJzbGF0LWNyZWF0b3IiLCJhIjoiY2tubHc4MHFhMGxkMTJvbTBnMGx2aWhmYSJ9.i0_Mpg0xLTXCVqk7x8jd2g"
 }).addTo(myMap);
+
 //Store our API endpoint
 //var queryURL ="https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson"
 var queryURL ="https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
 
 // Get color radius call to the query URL
 d3.json(queryURL, function(data) {
-    function styleInfo(featue {
-    return {
+    function styleInfo(feature) {
+      return {
         opacity: 1,
         fillOpacity: 1,
         fillColor: getColor(feature.properties.mag),
@@ -49,15 +50,14 @@ d3.json(queryURL, function(data) {
      }
     }
     //Set Radius from Magnitude
-    fucntion getRadio(magnitude){
-    if(magnitude === 0) {
+    function getRadius(magnitude) 
+    if (magnitude === 0) {
        return 1;
-           }
-    }    
+    }  
     return magnitude * 4;
   }
-  // GeoJSon layer
-  L.geoJson(data, {
+    // GeoJSon layer
+    L.geoJson(data, {
       //Maken circles
       pointToLayer: function(feature, latlng) {
         return L.circleMarker(latlng);
@@ -68,9 +68,10 @@ d3.json(queryURL, function(data) {
    onEachFeature: function(feature, layer)  {
        layer.bindPopup("Magnitude:" + "<br>Location: " + feature.properties.place);
    }
-     }.addTo(myMap);
+     }).addTo(myMap);
      
-     //An Object Legend({
+     //An Object Legend
+    var legend = L.control({
      position: "bottomright"
     };
     // Details for the legend
@@ -87,7 +88,7 @@ d3.json(queryURL, function(data) {
             "ea2c2c"
         ];
     // Looping through
-    for (car i = 0; i < grades.length; i++) {
+    for (var i = 0; i < grades.length; i++) {
        div.innerHTML +=
         "<i style= 'background: " + colors[i] + "'></i> " +
         grades[i] + (grades[i + 1] ? "&ndash;" +grades[i +1] + "</br>" : "+");
