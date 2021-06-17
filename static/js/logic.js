@@ -4,16 +4,15 @@
 var myMap = L.map("map", {
     center: [37.7749, -122.4194]
     zoom: 5
-
 });
 
 // Adding a tile layer (the background map image) to our map
 // We use the addTo method to add objects to our map
-l.tileLayer("")
-  attribution: "Map Data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\"CC-BY-SA</a>, Imagery <a href=\"https://www.mapbox.com/\"Mapbox</a>", 
+L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
+  attribution: "Map Data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>", 
   maxZoom:18,
   id: "mapbox.streets",
-  accessToken:""
+  accessToken:"pk.eyJ1IjoibXJzbGF0LWNyZWF0b3IiLCJhIjoiY2tubHc4MHFhMGxkMTJvbTBnMGx2aWhmYSJ9.i0_Mpg0xLTXCVqk7x8jd2g"
 }).addTo(myMap);
 //Store our API endpoint
 //var queryURL ="https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson"
@@ -93,11 +92,8 @@ d3.json(queryURL, function(data) {
         "<i style= 'background: " + colors[i] + "'></i> " +
         grades[i] + (grades[i + 1] ? "&ndash;" +grades[i +1] + "</br>" : "+");
        }
-    return div;
+       return div;
     };
     //Finally, we our legend to the map.
     legend.addTo(myMap);
-    )
-     )
-  )
-})
+  });
