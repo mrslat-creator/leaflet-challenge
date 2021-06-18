@@ -17,7 +17,7 @@ L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 
 //Store our API endpoint
 //var queryURL ="https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson"
-var queryURL ="https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
+var queryURL ="https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson";
 
 // Get color radius call to the query URL
 d3.json(queryURL, function(data) {
@@ -50,7 +50,7 @@ d3.json(queryURL, function(data) {
      }
     }
     //Set Radius from Magnitude
-    function getRadius(magnitude) 
+    function getRadius(magnitude) {
     if (magnitude === 0) {
        return 1;
     }  
@@ -85,7 +85,7 @@ d3.json(queryURL, function(data) {
             "#eecc00",
             "#ee9c00",
             "#ea822c",
-            "ea2c2c"
+            "#ea2c2c"
       ];
    
       // Looping through

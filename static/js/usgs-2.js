@@ -26,7 +26,7 @@
       magType: String,
       products: {
           <productType>: [
-              {
+                  {
                   id: String,
                   type: String,
                   code: String,
