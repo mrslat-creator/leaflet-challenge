@@ -9,7 +9,7 @@ var myMap = L.map("map", {
 // Adding a tile layer (the background map image) to our map
 // We use the addTo method to add objects to our map
 var satelliteMap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
-  attribution: "Map Data &copy; <a href="\"https://www.openstreetmap.org/"\>OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/"\>CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/"\>Mapbox</a>", 
+  attribution: "Map Data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>", 
   maxZoom:18,
   id: "mapbox.satellite",
   accessToken:"pk.eyJ1IjoibXJzbGF0LWNyZWF0b3IiLCJhIjoiY2tubHc4MHFhMGxkMTJvbTBnMGx2aWhmYSJ9.i0_Mpg0xLTXCVqk7x8jd2g"
@@ -67,7 +67,7 @@ d3.json(queryURL, function(data) {
    style: styleInfo,
    // popup for each marker
    onEachFeature: function(feature, layer)  {
-       layer.bindPopup("Magnitude:" + feature.properties.mag"<br>Location: " + feature.properties.place);
+       layer.bindPopup("Magnitude:" + feature.properties.mag + "<br>Location: " + feature.properties.place);
        }
      }).addTo(myMap);
      
