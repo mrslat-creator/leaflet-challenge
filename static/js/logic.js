@@ -73,7 +73,7 @@ d3.json(queryURL, function(data) {
      //An Object Legend
     var legend = L.control({
      position: "bottomright"
-    };
+    });
     // Details for the legend
     legend.onAdd = function() {
         var div = L.DomUtil.create("div", "info legend");
@@ -86,8 +86,9 @@ d3.json(queryURL, function(data) {
             "#ee9c00",
             "#ea822c",
             "ea2c2c"
-        ];
-    // Looping through
+      ];
+   
+      // Looping through
     for (var i = 0; i < grades.length; i++) {
        div.innerHTML +=
         "<i style= 'background: " + colors[i] + "'></i> " +
@@ -95,6 +96,7 @@ d3.json(queryURL, function(data) {
        }
        return div;
     };
+
     //Finally, we our legend to the map.
     legend.addTo(myMap);
   });
