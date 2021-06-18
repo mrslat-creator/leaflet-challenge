@@ -44,13 +44,12 @@
                         lastModified: Long Integer,
                         length: Integer,
                         url: String
-                    },
+                     },
                     ...
                  }
                },
             ...
-            }
-          ],
+           ],
         ...
         }
     },

@@ -4,13 +4,7 @@
 var myMap = L.map("map", {
     center: [37.7749, -122.4194],
     zoom: 5
-    layers: [satelliteMap, earthquakes]
-});
-// Define eathquakes GeoJson url variables
-var earthquakesUrl ="https://earthquake.usgs.gov/eathquakes/feed/v1.0/summary/all_week.geojson"
-
-//LayerGroup
-var earthquakes = L.layerGroup()
+    });
 
 // Adding a tile layer (the background map image) to our map
 // We use the addTo method to add objects to our map
@@ -24,11 +18,6 @@ var satelliteMap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}
 //Store our API endpoint
 //var queryURL ="https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson"
 var queryURL ="https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson";
-
-// Define a baseMap object to hold the base layer
-var baseMap= {
-  "Satelilite Map": satelliteMap
-};
 
 // Get color radius call to the query URL
 d3.json(queryURL, function(data) {
@@ -64,7 +53,8 @@ d3.json(queryURL, function(data) {
     function getRadius(magnitude) {
     if (magnitude === 0) {
        return 1;
-    }  
+    } 
+
     return magnitude * 4;
   }
     // GeoJSon layer
@@ -77,14 +67,15 @@ d3.json(queryURL, function(data) {
    style: styleInfo,
    // popup for each marker
    onEachFeature: function(feature, layer)  {
-       layer.bindPopup("Magnitude:" + "<br>Location: " + feature.properties.place);
-   }
+       layer.bindPopup("Magnitude:" + feature.properties.mag"<br>Location: " + feature.properties.place);
+       }
      }).addTo(myMap);
      
      //An Object Legend
     var legend = L.control({
      position: "bottomright"
     });
+
     // Details for the legend
     legend.onAdd = function() {
         var div = L.DomUtil.create("div", "info legend");
@@ -100,10 +91,10 @@ d3.json(queryURL, function(data) {
       ];
    
       // Looping through
-    for (var i = 0; i < grades.length; i++) {
+      for (var i = 0; i < grades.length; i++) {
        div.innerHTML +=
         "<i style= 'background: " + colors[i] + "'></i> " +
-        grades[i] + (grades[i + 1] ? "&ndash;" +grades[i +1] + "</br>" : "+");
+        grades[i] + (grades[i + 1] ? "&ndash;" + grades[i +1] + "</br>" : "+");
        }
        return div;
     };
