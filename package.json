@@ -5,7 +5,8 @@
   "main": "index.js",
   "dependencies": {
     "json": "^11.0.0",
-    "leaflet": "^1.7.1"
+    "leaflet": "^1.7.1",
+    "style.css": "^1.0.0"
   },
   "devDependencies": {},
   "scripts": {
