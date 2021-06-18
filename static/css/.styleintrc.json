@@ -1,5 +1,5 @@
 {
-    "extends": "stylelint-config-rpimer",
+    "extends": "stylelint-config-primer",
     "rules": {
         "color-named": null, 
         "selector-no-type": null,
