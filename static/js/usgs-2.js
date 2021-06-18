@@ -61,7 +61,7 @@
           latitude,
           depth
         ]
-    },
+    }),
     id: String
 }
                                         
