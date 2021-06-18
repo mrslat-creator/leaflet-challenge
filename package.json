@@ -1,0 +1,25 @@
+{
+  "name": "leaflet-challenge",
+  "version": "1.0.0",
+  "description": "![1-Logo](Images/1-Logo.png)",
+  "main": "index.js",
+  "dependencies": {
+    "json": "^11.0.0",
+    "leaflet": "^1.7.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrslat-creator/leaflet-challenge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mrslat-creator/leaflet-challenge/issues"
+  },
+  "homepage": "https://github.com/mrslat-creator/leaflet-challenge#readme"
+}
