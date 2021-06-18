@@ -4,6 +4,7 @@
   "description": "![1-Logo](Images/1-Logo.png)",
   "main": "index.js",
   "dependencies": {
+    "geojson": "^0.5.0",
     "json": "^11.0.0",
     "leaflet": "^1.7.1",
     "style.css": "^1.0.0"
